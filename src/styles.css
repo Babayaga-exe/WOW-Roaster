@@ -1,0 +1,178 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-teal-deep: var(--teal-deep);
+  --color-teal-mid: var(--teal-mid);
+  --color-teal-bright: var(--teal-bright);
+  --color-teal-glow: var(--teal-glow);
+  --color-wo: var(--wo);
+  --color-ro: var(--ro);
+  --color-al: var(--al);
+  --color-work: var(--work);
+  --font-sans: "Poppins", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.875rem;
+  --teal-deep: oklch(0.27 0.05 195);
+  --teal-mid: oklch(0.45 0.10 195);
+  --teal-bright: oklch(0.72 0.15 190);
+  --teal-glow: oklch(0.85 0.18 185);
+
+  --background: oklch(0.18 0.04 200);
+  --foreground: oklch(0.97 0.01 190);
+  --card: oklch(0.28 0.05 195 / 55%);
+  --card-foreground: oklch(0.97 0.01 190);
+  --popover: oklch(0.22 0.05 200);
+  --popover-foreground: oklch(0.97 0.01 190);
+  --primary: oklch(0.72 0.15 190);
+  --primary-foreground: oklch(0.15 0.03 200);
+  --secondary: oklch(0.32 0.05 195);
+  --secondary-foreground: oklch(0.97 0.01 190);
+  --muted: oklch(0.30 0.04 195);
+  --muted-foreground: oklch(0.78 0.04 190);
+  --accent: oklch(0.45 0.12 190);
+  --accent-foreground: oklch(0.98 0.01 190);
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.85 0.10 190 / 18%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.72 0.15 190);
+
+  --work: oklch(0.78 0.16 155);
+  --wo: oklch(0.75 0.16 60);
+  --ro: oklch(0.68 0.22 25);
+  --al: oklch(0.70 0.20 305);
+}
+
+.dark { color-scheme: dark; }
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body { font-family: var(--font-sans); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    min-height: 100vh;
+  }
+}
+
+/* ============ Glass + glow utilities ============ */
+@utility glass {
+  background: linear-gradient(135deg, oklch(1 0 0 / 8%), oklch(1 0 0 / 3%));
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid oklch(1 0 0 / 12%);
+  box-shadow: 0 8px 32px oklch(0 0 0 / 35%), inset 0 1px 0 oklch(1 0 0 / 8%);
+}
+@utility glass-strong {
+  background: linear-gradient(135deg, oklch(1 0 0 / 14%), oklch(1 0 0 / 5%));
+  backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid oklch(1 0 0 / 18%);
+}
+@utility neon-glow {
+  box-shadow: 0 0 24px var(--teal-bright), 0 0 60px oklch(0.72 0.15 190 / 35%);
+}
+@utility text-glow {
+  text-shadow: 0 0 18px oklch(0.85 0.18 185 / 80%), 0 0 40px oklch(0.72 0.15 190 / 55%);
+}
+@utility bg-teal-gradient {
+  background: linear-gradient(135deg, #0d3d3d 0%, #126b6b 45%, #1a8a8a 100%);
+}
+@utility bg-teal-radial {
+  background:
+    radial-gradient(circle at 20% 10%, oklch(0.45 0.12 190 / 55%), transparent 50%),
+    radial-gradient(circle at 85% 90%, oklch(0.55 0.14 200 / 45%), transparent 55%),
+    linear-gradient(160deg, #07262a 0%, #0d3d3d 60%, #114b4b 100%);
+}
+
+/* ============ Animations ============ */
+@keyframes wow-bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-8px) scale(1.04); }
+}
+@keyframes wow-pulse-glow {
+  0%, 100% { filter: drop-shadow(0 0 18px oklch(0.85 0.18 185 / 70%)); }
+  50%      { filter: drop-shadow(0 0 38px oklch(0.85 0.18 185 / 95%)); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+@utility animate-wow {
+  animation: wow-bounce 2.6s ease-in-out infinite, wow-pulse-glow 3s ease-in-out infinite;
+}
+@utility animate-fade-up {
+  animation: fade-up 0.6s ease-out both;
+}
+@utility animate-float {
+  animation: float-y 4s ease-in-out infinite;
+}
+
+/* ============ Status badge variants ============ */
+@utility badge-work {
+  background: linear-gradient(135deg, oklch(0.55 0.14 160 / 35%), oklch(0.65 0.16 155 / 25%));
+  color: oklch(0.92 0.14 155);
+  border: 1px solid oklch(0.65 0.16 155 / 55%);
+  box-shadow: inset 0 0 0 1px oklch(1 0 0 / 6%), 0 0 14px oklch(0.65 0.16 155 / 25%);
+}
+@utility badge-wo {
+  background: linear-gradient(135deg, oklch(0.60 0.16 60 / 35%), oklch(0.70 0.18 55 / 25%));
+  color: oklch(0.95 0.14 70);
+  border: 1px solid oklch(0.70 0.18 55 / 55%);
+}
+@utility badge-ro {
+  background: linear-gradient(135deg, oklch(0.55 0.22 25 / 38%), oklch(0.65 0.24 22 / 28%));
+  color: oklch(0.95 0.10 30);
+  border: 1px solid oklch(0.65 0.22 25 / 60%);
+}
+@utility badge-al {
+  background: linear-gradient(135deg, oklch(0.55 0.20 305 / 38%), oklch(0.68 0.22 305 / 28%));
+  color: oklch(0.95 0.14 305);
+  border: 1px solid oklch(0.68 0.22 305 / 60%);
+}
+
+/* ============ Print ============ */
+@media print {
+  .no-print { display: none !important; }
+  body { background: white !important; color: black !important; }
+  .glass, .glass-strong { background: white !important; border-color: #ccc !important; backdrop-filter: none !important; box-shadow: none !important; }
+  .bg-teal-gradient, .bg-teal-radial { background: white !important; color: black !important; }
+  * { color: black !important; text-shadow: none !important; box-shadow: none !important; }
+  .badge-work, .badge-wo, .badge-ro, .badge-al { border: 1px solid #999 !important; color: black !important; background: #f3f3f3 !important; }
+}
