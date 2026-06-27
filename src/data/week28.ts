@@ -37,7 +37,7 @@ export interface Team {
   advisors: Advisor[];
 }
 
-export const TOTAL_ADVISORS = ...
+export const TOTAL_ADVISORS = TEAMS.reduce((n, t) => n + t.advisors.length, 0);
   {
   leader: "Chanchal Pandey",
   advisors: [
