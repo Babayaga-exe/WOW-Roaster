@@ -120,12 +120,10 @@ function WowLogo({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
   const h = size === "lg" ? "h-20 md:h-24" : size === "sm" ? "h-10" : "h-14 md:h-16";
   return (
     <div className="inline-flex items-center justify-center animate-wow">
-      <img
-        src={wowLogo.url}
-        alt="WOW"
-        className={`${h} w-auto drop-shadow-[0_0_24px_rgba(120,230,220,0.55)]`}
-        style={{ filter: "brightness(1.15) saturate(1.1)" }}
-      />
+     <img
+  src={wowLogo}
+  alt="WOW"
+/>
     </div>
   );
 }
