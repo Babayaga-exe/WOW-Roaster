@@ -168,7 +168,7 @@ function Dashboard() {
   const [shiftFilter, setShiftFilter] = useState<string>("all");
   const [search, setSearch] = useState("");
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
-  const [weekSel, setWeekSel] = useState(String(WEEK_NUMBER));
+  const navigate = useNavigate(); const { week } = Route.useSearch();
   const [showModal, setShowModal] = useState(false);
   const [requests, setRequests] = useState<RequestEntry[]>([]);
   const [showRequests, setShowRequests] = useState(false);
