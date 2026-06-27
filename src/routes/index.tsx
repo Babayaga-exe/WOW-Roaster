@@ -115,7 +115,7 @@ function Counter({ value, duration = 1100 }: { value: number; duration?: number 
 }
 
 /* ---------------- WOW Logo ---------------- */
-import wowLogo from "@/assets/wow-logo.png.asset.json";
+import wowLogo from "@/assets/wow-logo.png";
 function WowLogo({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
   const h = size === "lg" ? "h-20 md:h-24" : size === "sm" ? "h-10" : "h-14 md:h-16";
   return (
