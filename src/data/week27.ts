@@ -83,7 +83,7 @@ export const TEAMS: Team[] = [
       { empId: "1199585", name: "Rochelle Pereira", queue: "Care", shift: "16:00", days: ["16:00","16:00","16:00","RO","16:00","16:00","16:00"] },
       { empId: "1190561", name: "Mohammed Yusuf Shaikh (DJ)", queue: "DOC", shift: "16:00", days: ["16:00","16:00","WO","16:00","WO","16:00","16:00"] },
       { empId: "1190533", name: "Margaret Rohini", queue: "Care", shift: "11:30", days: ["11:30","11:30","WO","11:30","11:30","11:30","11:30"] },
-      { empId: "1190495", name: "Lakshita Premanath", queue: "Care", shift: "11:30", days: ["11:30","11:30","WO","11:30","11:30","11:30","11:30"] },
+      { empId: "1190495", name: "Laksshita Premanath", queue: "Care", shift: "11:30", days: ["11:30","11:30","WO","11:30","11:30","11:30","11:30"] },
       { empId: "1179669", name: "Hrithick Rahul", queue: "Care", shift: "16:30", days: ["16:30","16:30","WO","16:30","16:30","16:30","16:30"] },
     ],
   },
