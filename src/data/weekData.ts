@@ -1,7 +1,6 @@
-import * as week27 from "./week27";
-import * as week28 from "./week28";
+import { weeks } from "@/data";
+import { useState } from "react";
 
-export const weeks = {
-  27: week27,
-  28: week28,
-};
+const [selectedWeek, setSelectedWeek] = useState(28);
+
+const currentWeek = weeks[selectedWeek];
